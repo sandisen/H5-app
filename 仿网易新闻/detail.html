@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style type="text/css">
+    	#replyCount{
+		background-color: red;
+		color: white;
+		border-radius: 15px;
+		margin-top:10px;
+		padding: 5px;
+		float: right;
+		margin-right: 10px;
+    	}
+    	.mui-content{
+		top: 45px;
+		bottom: 0px;
+    	}
+    	body,#container,.mui-bar{
+    		background-color: white;
+    	}
+    	
+    	#container p{
+    		padding: 0 10px;
+    		font-size: 14px;
+    	}
+    	#container img{
+    		width: 90%;
+    		display: block;
+    		margin: 15px auto;
+    	}
+    	#container h3{
+    		margin: 10px 0px 10px 10px;;
+
+    	}
+    	#ptime{
+    		margin: 10px 10px;
+    	}
+    </style>
+    <script type="text/javascript" charset="UTF-8"> 
+    
+      	mui.init();
+      	mui.plusReady(function(){
+      		
+			var self = plus.webview.currentWebview();
+			if(self.listName == ''){
+      			alert("暂时没有数据");
+      		}
+			var url = 'http://c.m.163.com/nc/article/'+self.listName+'/full.html';
+			
+			console.log(url);
+			mui.ajax(url,{
+				dataType:'json',
+				type:'get',
+				timeout:10000,
+				success:function(data){
+					dataAnalyze(data,self.listName);
+				},
+				error:function(){
+					console.log("返回数据失败");
+				}
+			})
+      	})
+      	//数据解析
+      	function dataAnalyze(data,url_id){
+      		//跟帖数量
+      		console.log(data[url_id].replyCount);
+      		$("#replyCount").html(data[url_id].replyCount+"跟帖");
+      		//抬头
+      		$("#container").append('<h3>'+data[url_id].title+'</h3>');
+      		//新闻事件data[url_id].ptime
+      		$("#container").append('<span id="ptime">'+data[url_id].ptime+'</span>');
+      		//图片，判断是否有图片，有的话就添加
+      		if(data[url_id].img.length != 0)
+      		{
+      			var arr = data[url_id].img;
+      			for(var i = 0;i<arr.length;i++){
+      				$("#container").append('<img src="'+data[url_id].img[i].src+'" alt="'+data[url_id].img[0].alt+'" />');
+      			}	
+      		}
+      		//主题内容
+      		$("#container").append(data[url_id].body);
+      	}
+    </script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <span id="replyCount">0跟帖</span>
+	</header>
+	<div class="mui-content" id="container">
+		
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html manifest="app.manifest">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <h1 class="mui-title">
+	    	<img src="imgs/navbar_netease@2x.png"/>
+	    </h1>
+	    <!--右侧“搜”图标-->
+	    <div class="login_img"><img src="imgs/login_username_icon@2x.png"/></div>
+	</header>
+	<nav class="mui-bar mui-bar-tab">
+		<a class="mui-tab-item mui-active" index="0">
+		        <span class="mui-icon iconfont icon-xinwen"></span>
+		        <span class="mui-tab-label">新闻</span>
+		    </a>
+		    <a class="mui-tab-item" index="1">
+		        <span class="mui-icon iconfont icon-yuedu"></span>
+		        <span class="mui-tab-label">阅读</span>
+		    </a>
+		    <a class="mui-tab-item" index="2">
+		        <span class="mui-icon iconfont icon-shipin"></span>
+		        <span class="mui-tab-label">视听</span>
+		    </a>
+		     <a class="mui-tab-item" index="3">
+		        <span class="mui-icon iconfont icon-wode"></span>
+		        <span class="mui-tab-label">我</span>
+		    </a>
+	</nav>
+	<!--上拉加载更多容器-->
+	<div id="refreshContainer" class="mui-content mui-scroll-wrapper">
+	  <div class="mui-scroll">
+			<!--第一个页面-->
+			<div class="container-div" style="display: block;">
+				<div>
+					<div class="tab_title">
+						<a>头条</a>
+						<a >热点</a>
+						<a >娱乐</a>
+						<a >财经</a>
+						<a >体育</a>
+						<a ><img src="imgs/comment_arrow_down@2x.png"/></a>
+					</div>
+				</div>
+				
+				<div class="mui-slider ">
+		            <div class="mui-slider-group mui-slider-loop" id="slider-img">
+		            		<!--图片、标题-->
+		            </div>
+		            <!--注意这里面是图片滚动的标记，div的数量要和上面的匹配-->
+		            <div class="mui-slider-indicator" id="slider-indicator">
+		            		<!--图片滚动标记-->
+		            </div>
+				</div>
+				<ul class="mui-table-view" id="tableView-List"></ul>
+			</div>
+		
+		
+		
+		<!--第二个页面-->
+		<div class="container-div">
+			
+			<ul class="mui-table-view mui-grid-view">
+			    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+			        <a href="#">
+			            <img class="mui-media-object" src="http://img0.imgtn.bdimg.com/it/u=228661466,2147366548&fm=11&gp=0.jpg">
+			            <div class="mui-media-body">angelababy</div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+			        <a href="http://www.jianshu.com/users/84b5ef6309d6/latest_articles">
+			            <img class="mui-media-object" src="http://img1.imgtn.bdimg.com/it/u=187435332,1856956297&fm=11&gp=0.jpg">
+			            <div class="mui-media-body">她当然是小美女喽</div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+			        <a href="http://image.baidu.com/search/detail?ct=503316480&z=0&ipn=false&word=angelababy&step_word=&pn=132&di=195610639760&rn=1&tn=baiduimagedetail&is=&istype=0&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=undefined&cs=874237152%2C114840319&os=1593680427%2C3868005737&ln=1000&fr=&fmq=1457428872077_R&fm=&ic=undefined&s=undefined&se=&sme=&tab=0&width=&height=&face=undefined&ist=&jit=&cg=star&oriquery=&objurl=http%3A%2F%2Fwww.jx.xinhuanet.com%2Fnews%2Fssxw%2F2016-03%2F04%2F1118236661_14570765114551n.jpg&gsm=b4">
+			            <img class="mui-media-object" src="http://img4.imgtn.bdimg.com/it/u=3973574936,4030812978&fm=23&gp=0.jpg">
+			            <div class="mui-media-body">她当然是小美女喽</div>
+			        </a>
+			    </li>
+			    <li class="mui-table-view-cell mui-media mui-col-xs-6">
+			        <a href="http://image.baidu.com/search/detail?ct=503316480&z=0&ipn=false&word=angelababy&step_word=&pn=132&di=195610639760&rn=1&tn=baiduimagedetail&is=&istype=0&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=undefined&cs=874237152%2C114840319&os=1593680427%2C3868005737&ln=1000&fr=&fmq=1457428872077_R&fm=&ic=undefined&s=undefined&se=&sme=&tab=0&width=&height=&face=undefined&ist=&jit=&cg=star&oriquery=&objurl=http%3A%2F%2Fwww.jx.xinhuanet.com%2Fnews%2Fssxw%2F2016-03%2F04%2F1118236661_14570765114551n.jpg&gsm=b4">
+			            <img class="mui-media-object" src="http://img2.imgtn.bdimg.com/it/u=1069537753,3932258861&fm=23&gp=0.jpg">
+			            <div class="mui-media-body">她当然是小美女喽</div>
+			        </a>
+			    </li>
+			     <li class="mui-table-view-cell mui-media mui-col-xs-6">
+			        <a href="http://image.baidu.com/search/detail?ct=503316480&z=0&ipn=false&word=angelababy&step_word=&pn=132&di=195610639760&rn=1&tn=baiduimagedetail&is=&istype=0&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=undefined&cs=874237152%2C114840319&os=1593680427%2C3868005737&ln=1000&fr=&fmq=1457428872077_R&fm=&ic=undefined&s=undefined&se=&sme=&tab=0&width=&height=&face=undefined&ist=&jit=&cg=star&oriquery=&objurl=http%3A%2F%2Fwww.jx.xinhuanet.com%2Fnews%2Fssxw%2F2016-03%2F04%2F1118236661_14570765114551n.jpg&gsm=b4">
+			            <img class="mui-media-object" src="http://img2.imgtn.bdimg.com/it/u=2226388674,3850143078&fm=23&gp=0.jpg">
+			            <div class="mui-media-body">她当然是小美女喽</div>
+			        </a>
+			    </li>
+			     <li class="mui-table-view-cell mui-media mui-col-xs-6">
+			        <a href="http://image.baidu.com/search/detail?ct=503316480&z=0&ipn=false&word=angelababy&step_word=&pn=132&di=195610639760&rn=1&tn=baiduimagedetail&is=&istype=0&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=undefined&cs=874237152%2C114840319&os=1593680427%2C3868005737&ln=1000&fr=&fmq=1457428872077_R&fm=&ic=undefined&s=undefined&se=&sme=&tab=0&width=&height=&face=undefined&ist=&jit=&cg=star&oriquery=&objurl=http%3A%2F%2Fwww.jx.xinhuanet.com%2Fnews%2Fssxw%2F2016-03%2F04%2F1118236661_14570765114551n.jpg&gsm=b4">
+			            <img class="mui-media-object" src="http://img1.imgtn.bdimg.com/it/u=3147254935,3611439682&fm=23&gp=0.jpg">
+			            <div class="mui-media-body">她当然是小美女喽</div>
+			        </a>
+			    </li>
+			</ul>
+		</div>
+		<!--第三个页面-->
+		<div class="container-div" id="container-div-index3">
+			
+			
+			
+		</div>
+
+		<!--第四个页面-->
+		<div class="container-div">
+			
+			<div class="index5-topDiv">
+				<img src="imgs/login_username_icon@2x.png" alt="" id="camare-action" />
+				<p>更换头像</p>
+				
+				
+			</div>
+			<div class="mui-card">
+			    <ul class="mui-table-view mui-grid-view mui-grid-9">
+			        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+			            <a href="#">
+			                <span class="mui-icon mui-icon-home"></span>
+			                <div class="mui-media-body">Home</div>
+			            </a>
+			        </li>
+			        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+			            <a href="#">
+			                <span class="mui-icon mui-icon-email"><span class="mui-badge mui-badge-red">5</span></span>
+			                <div class="mui-media-body">Email</div>
+			            </a>
+			        </li>
+			        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+			            <a href="#">
+			                <span class="mui-icon mui-icon-chatbubble"></span>
+			                <div class="mui-media-body">Chat</div>
+			            </a>
+			        </li>
+			        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+			            <a href="#">
+			                <span class="mui-icon mui-icon-location"></span>
+			                <div class="mui-media-body">Location</div>
+			            </a>
+			        </li>
+			        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+			            <a href="#">
+			                <span class="mui-icon mui-icon-search"></span>
+			                <div class="mui-media-body">Search</div>
+			            </a>
+			        </li>
+			        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+			            <a href="#">
+			                <span class="mui-icon mui-icon-phone"></span>
+			                <div class="mui-media-body">Phone</div>
+			            </a>
+			        </li>
+			    </ul>
+			</div>
+		</div>
+</div>	
+</body>
+</html>
